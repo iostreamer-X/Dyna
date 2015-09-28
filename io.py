@@ -14,10 +14,6 @@ def handle_response(response):
 		intent = decoded['outcomes'][0]['intent']
 		if confidence >= 0.7:
 			exec(intent+'.handle(response)')
-			
-	#value = decoded['outcomes'][0]['entities']['befehl'][0]['value']
-	#print "Playing Music"
-	#os.system("rhythmbox-client --play")
 
 
 wit.init()
