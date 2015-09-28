@@ -6,7 +6,6 @@ import hue_lightstrip
 import volume
 import playvideo
 import search
-import go_to_link
 
 context = 'null'
 if __name__ == '__main__':
