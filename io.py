@@ -2,12 +2,13 @@ import wit
 import time
 import json
 import os
+import thread
 import hue_lightstrip
 import volume
 import playvideo
 import search
 import go_to_link
-import thread
+import music_control
 
 context = 'null'
 if __name__ == '__main__':
@@ -17,7 +18,7 @@ if __name__ == '__main__':
 		if body is not None:
 			confidence = decoded['outcomes'][0]['confidence']
 			intent = decoded['outcomes'][0]['intent']
-			if confidence >= 0.7:
+			if confidence >= 0.67:
 				exec(intent+'.handle(response)')
 
 
