@@ -7,6 +7,7 @@ import volume
 import playvideo
 import search
 import go_to_link
+import thread
 
 context = 'null'
 if __name__ == '__main__':
@@ -28,6 +29,9 @@ if __name__ == '__main__':
 		time.sleep(5)
 		os.system("pkill notify-osd && notify-send Processing")
 		response = wit.voice_query_stop()
-		handle_response(response)
+		try:
+			thread.start_new_thread(handle_response,(response,))
+		except:
+			print "Dafaq"
 
 	wit.close()

@@ -6,6 +6,8 @@ import hue_lightstrip
 import volume
 import playvideo
 import search
+import go_to_link
+import thread
 
 context = 'null'
 if __name__ == '__main__':
@@ -18,15 +20,23 @@ if __name__ == '__main__':
 			if confidence >= 0.7:
 				exec(intent+'.handle(response)')
 
+	def thread_handle_response():
+		response = wit.voice_query_stop()
+		handle_response(response)
 
 	wit.init()
 
 	while True:
-		os.system("pkill notify-osd && notify-send Listening")
+		#os.system("pkill notify-osd && notify-send Listening")
 		wit.voice_query_start('O66U5BV3JAAAZ7YENBNJVHTWN2DXGZ3Z')
-		time.sleep(5)
-		os.system("pkill notify-osd && notify-send Processing")
-		response = wit.voice_query_stop()
-		handle_response(response)
+		time.sleep(3)
+		#os.system("pkill notify-osd")
+		time.sleep(2)
+		#os.system("pkill notify-osd && notify-send Processing")
+		#response = wit.voice_query_stop()
+		try:
+			thread.start_new_thread(thread_handle_response,())
+		except:
+			print "Dafaq"
 
 	wit.close()
