@@ -1,10 +1,17 @@
 #!/usr/bin/python
 
 import sys
-from pygoogle import pygoogle
+import urllib
+import json
 import os
 
 title = sys.argv[-1]
 print(title)
-link = pygoogle(title+'youtube').get_urls()[0]
+query = urllib.urlencode({'q' : title+'youtube'})
+url = 'http://ajax.googleapis.com/ajax/services/search/web?v=1.0&%s' \
+% (query)
+search_results = urllib.urlopen(url)
+json = json.loads(search_results.read())
+results = json['responseData']['results']
+link = results[0]['url']
 os.system('google-chrome '+link)
