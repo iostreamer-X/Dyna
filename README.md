@@ -29,6 +29,27 @@ then in lines 28 & 31, remove this part "pkill notify-osd && ", so that it looks
 28. `os.system("notify-send Listening")`
 31. `os.system("notify-send Processing")`
 
+#Commands
+
+Dyna can do 4 things.
+
+1. Modify brightness level
+  * "set the brightness to 10%"
+  * "increase the brightness by 20%"
+  * "brightness 90%"
+
+2. Modify Volume level
+  * "set the volume to 10%"
+  * "increase the volume by 20%"
+  * "volume 90%"
+
+3. Play Music. (If the song you asked for is not found in userName/Music, the song is played through soundcloud)
+  * "play dropout slowly"
+  * "play where are you now"
+
+4. Search on Google
+  * "How's the weather in Dubai"
+  
 #Demo
 
 [![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/2Jy_rw5PW6Y/0.jpg)](http://www.youtube.com/watch?v=2Jy_rw5PW6Y)
